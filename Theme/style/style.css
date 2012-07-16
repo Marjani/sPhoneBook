@@ -1,0 +1,39 @@
+﻿body
+{
+}
+#post
+{
+    border: 1px solid blanchedAlmond;
+    padding: 20px;
+}
+.persons
+{
+    background-color: #DAEBF7;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+.firstname
+{
+}
+.lastname
+{
+}
+.tel
+{
+}
+.psrsonsTable
+{
+    border: 1px solid black;
+    width: 600px;
+}
+.tableTitle
+{
+    background-color: #4B88BF;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 black;
+}
+input#fname{width: 196px;}
+input#lname{width: 187px;}
+input#tel{width: 179px;}
+

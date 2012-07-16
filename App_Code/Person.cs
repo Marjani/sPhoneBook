@@ -10,10 +10,10 @@ public class Person
 {
     #region Constractor
     public Person()
-    {
+	{
     }
 
-    public Person(int id,string firstName, string lastName, string telephone)
+    public Person(int id, string firstName, string lastName, string telephone)
     {
         Id = id;
         FirstName = firstName;
@@ -30,18 +30,18 @@ public class Person
     #endregion
 
     #region Methods
-    public string addPerson(string firstName, string lastName, string Telephone)
+    public string addPerson(string firstName, string lastName,string Telephone)
     {
         string Id = null;
         return Id;
     }
 
-    public List<Person> getPersons()
+    public List<Person> getPersons ()
     {
         List<Person> collection = new List<Person>();
         return collection;
     }
-
+    
     public void removePerson(string Id)
     {
     }

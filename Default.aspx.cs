@@ -4,30 +4,40 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using System.Web.Services;
 
-public partial class _Default : System.Web.UI.Page 
+public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        SqlConnection con = new SqlConnection();
-        con.ConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=persons;Data Source=.\sqlexpress";
-        con.Open();
-        SqlCommand cmd = new SqlCommand("getAllPersons",con);
-        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-        SqlDataReader read = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-        List<Person> collection = new List<Person>();
-
-        while(read.Read())
+        if (!Page.IsPostBack)
         {
-            collection.Add(new Person(
-                read["Id"] == DBNull.Value ? Int16.MinValue : (int)read["Id"],
-                read["FName"] == DBNull.Value ? string.Empty : (string)read["FName"],
-                read["LName"] == DBNull.Value ? string.Empty : (string)read["Lname"],
-                read["Tel"] == DBNull.Value ? string.Empty : (string)read["Tel"]
-                ));
         }
-        var a = collection;
+    }
+
+    
+
+    [WebMethod]
+    public static List<Person> getAllPersons()
+    {
+        DAL oDAL = new DAL();
+        List<Person> collection = new List<Person>();
+        collection = oDAL.getAllPersons();
+        return collection;
+    }
+
+    [WebMethod]
+    public static int addPerson(string fname, string lname, string tel)
+    {
+        DAL oDAL = new DAL();
+        int ID = oDAL.addPerson(fname, lname, tel);
+        return ID;
+    }
+
+    [WebMethod]
+    public static void deletePerson(int Id)
+    {
+        DAL oDAL = new DAL();
+        oDAL.deletePerson(Id);
     }
 }
