@@ -6,7 +6,7 @@ Requirement
 --------------------------------------
 - Sql Server 
 - IIS 
--  Use VS2010 for run and debug
+- Use VS2010 for run and debug
 
 
 
